@@ -1,0 +1,50 @@
+en:
+  helpers:
+    submit:
+      project:
+        create: "Crear proyecto"
+        update: "Actualizar proyecto"
+      observation:
+        create: "Crear observación"
+        update: "Actualizar observación"
+  enumerize:
+    project:
+      commune:
+        ranco: "Lago Ranco"
+        bueno: "Río Bueno"
+        union: "La Unión"
+  activerecord:
+    attributes:
+      project:
+        name: "Nombre proyecto"
+        commune: "Comuna"
+        origin_visit: "Origen de visita"
+        date_visit: "Fecha de visita"
+        line: "Linea FRIL"
+        idi: "Codigo IDI"
+        tracing: "Seguimiento"
+        visit_id: "Codigo visita"
+        visit_booklet: "Cartilla de visita"
+        report_made: "Informe de cometido"
+        file: "Adjunto de cartilla de visita"
+        attachment: "Adjunto de informe de cometido"
+        observations: "Observaciones"
+      observation:
+        project: Proyectos
+        observation_detail: "Detalle de observaciones"
+        action_plan: "Plan de acción GORE"
+        office_observation: "Oficio observaciones"
+        office_date: "Fecha oficio"
+        due_date: "Fecha vencimiento plazo"
+        responsible: "Responsable"
+        meet: "¿Cumple?"
+        office_breach: "Oficio informa incumplimiento"
+        breach_date: "Fecha oficio incumplimiento"
+        term_second: "Plazo n° 2"
+        responsible_second: "Responsable"
+        meet_second: "¿Cumple?"
+
+  will_paginate:
+    previous_label: "&#8592; Anterior"
+    next_label: "Siguiente &#8594;"
+    page_gap: "&hellip;"

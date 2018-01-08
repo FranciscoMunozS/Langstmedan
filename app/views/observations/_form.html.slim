@@ -1,0 +1,48 @@
+= simple_form_for @observation do |f|
+  = f.error_notification
+  .panel.panel-default
+    .panel-body
+      .form-group
+        = f.association :project
+      .row
+        .form-group.col-md-12
+          = f.input :observation_detail, input_html: { class: 'form-control' }
+      .row
+        .form-group.col-md-4
+          = f.input :action_plan, input_html: { class: 'form-control' }
+        .form-group.col-md-4
+          = f.input :office_date, as: :string, input_html: { class: "datepicker" }
+        .form-group.col-md-4
+          = f.input :office_observation, input_html: { class: 'form-control' }
+      .row
+        .form-group.col-md-6
+          = f.input :due_date, as: :string, input_html: { class: "datepicker" }
+        .form-group.col-md-6
+          = f.input :responsible, input_html: { class: 'form-control' }
+      .row
+        .form-group.col-md-12
+          .form-check
+            label.form-check-label
+              = f.input :meet, input_html: { class: 'form-check-input' }
+      .row
+        .form-group.col-md-6
+          = f.input :office_breach, input_html: { class: 'form-control' }
+        .form-group.col-md-6
+          = f.input :breach_date, as: :string, input_html: { class: "datepicker" }
+      .row
+        .form-group.col-md-6
+          = f.input :term_second, input_html: { class: 'form-control' }
+        .form-group.col-md-6
+          = f.input :responsible_second, input_html: { class: 'form-control' }
+      .row
+        .form-group.col-md-12
+          .form-check
+            label.form-check-label
+              = f.input :meet_second, input_html: { class: 'form-check-input' }
+    .panel-footer
+      .row
+        .col-md-12.text-center
+          .btn-group
+            = f.button 'submit', class: 'btn btn-default'
+            = f.button :submit, "Guardar y agregar otra observación", name: 'create_and_add', class: 'btn btn-default'
+            = link_to 'Cancelar', root_path, class: 'btn btn-default'

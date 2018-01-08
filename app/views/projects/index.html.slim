@@ -1,0 +1,32 @@
+.row
+  .col-md-4
+    .btn-group.btn-group-justified
+      = link_to 'Agregar proyecto', new_project_path, class: 'btn btn-primary'
+      = link_to 'Agregar observación', new_observation_path, class: 'btn btn-primary'
+h3
+  | Proyectos
+  small  ultimos proyectos agregados
+  hr
+.row
+  .col-md-12
+    .panel.panel-default
+      table.table
+        thead
+          tr
+            th Nombre de proyecto
+            th Visita
+            th Fecha de visita
+            th Comuna
+            th.text-center colspan="2" Acciones
+        tbody
+          - @projects.each do |project|
+            tr
+              td= project.name
+              td= project.origin_visit
+              td= project.commune
+              td= project.date_visit
+              td= link_to "Ver", project, class: 'btn btn-default btn-sm'
+              td= link_to "Editar", edit_project_path(project), class: 'btn btn-default btn-sm'
+      .panel-footer
+        .text-center
+          = will_paginate @project_pagination, renderer: BootstrapPagination::Rails

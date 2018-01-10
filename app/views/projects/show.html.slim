@@ -1,0 +1,14 @@
+- breadcrumb :project, @project
+
+.row
+  .col-md-4
+    = render 'assets/project_assets/project_detail'
+  .col-md-8
+    - if @project.observations.exists?
+      = render 'assets/observation_assets/observation_tab'
+    - else
+      .panel.panel-default
+        .panel-body.text-center
+          h3 Proyecto sin observaciones
+        .panel-footer.text-center
+          = link_to 'Agregar observaciones', new_observation_path, class: 'btn btn-default'

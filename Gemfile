@@ -21,6 +21,11 @@ gem 'bootstrap-datepicker-rails', '~> 1.7', '>= 1.7.1.1'
 gem 'will_paginate', '~> 3.1.0'
 gem 'will_paginate-bootstrap', '~> 1.0', '>= 1.0.1'
 gem 'enumerize', '~> 2.1', '>= 2.1.2'
+gem 'gretel', '~> 3.0', '>= 3.0.9'
+gem 'rails-bootstrap-tabs', '~> 0.2.0'
+gem 'normalize-rails', '~> 4.1', '>= 4.1.1'
+gem 'bootstrap_sb_admin_base_v2'
+gem "font-awesome-rails"
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]

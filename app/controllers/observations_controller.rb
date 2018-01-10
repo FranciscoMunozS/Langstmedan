@@ -1,5 +1,5 @@
 class ObservationsController < ApplicationController
-  before_action :find_observation, only: [:show]
+  before_action :find_observation, only: [:show, :edit, :update]
 
   def new
     @observation = Observation.new
@@ -18,6 +18,17 @@ class ObservationsController < ApplicationController
   end
 
   def show
+  end
+
+  def edit
+  end
+
+  def update
+    if @observation.update(observation_params)
+      redirect_to @observation, notice: "Observación actualizada correctamente"
+    else
+      render 'edit'
+    end
   end
 
   private

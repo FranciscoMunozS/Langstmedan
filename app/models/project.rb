@@ -3,5 +3,5 @@ class Project < ApplicationRecord
 
   has_many :observations
 
-  enumerize :commune, in: [:corral, :futrono, :union, :ranco, :lanco, :mariquina, :paillaco, :panguipulli, :bueno, :valdivia]
+  enumerize :commune, in: [:corral, :futrono, :la_union, :lago_ranco, :lanco, :mariquina, :paillaco, :panguipulli, :rio_bueno, :valdivia]
 end

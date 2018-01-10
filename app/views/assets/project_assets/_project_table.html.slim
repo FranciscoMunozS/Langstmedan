@@ -1,0 +1,34 @@
+- if @projects.exists?
+  .panel.panel-default
+    .panel-body
+      table#sensors.table-hover.display.table cellspacing="0" width="100%"
+        thead
+          tr
+            th.text-center Nombre de proyecto
+            th.text-center Visita
+            th.text-center Fecha de visita
+            th.text-center Comuna
+            th.text-center Observaciones
+            th.text-center Acciones
+        tbody
+          - @projects.each do |project|
+            tr
+              td.text-center= project.name
+              td.text-center= project.origin_visit
+              td.text-center= project.date_visit
+              td.text-center= project.commune.text
+              td.text-center= project.observations.count
+              td.text-center
+                .btn-group
+                  = link_to project, class: 'btn btn-default btn-sm' do
+                    span.glyphicon.glyphicon-eye-open
+                  = link_to edit_project_path(project), class: 'btn btn-default btn-sm' do
+                    span.glyphicon.glyphicon-edit aria-hidden="true"
+                  = link_to project_path(project), method: :delete,  data: {confirm: 'Esta seguro que desea eliminar el registro?'}, class: 'btn btn-default btn-sm' do
+                    span.glyphicon.glyphicon-remove-circle aria-hidden="true"
+- else
+  .panel.panel-default
+    .panel-body
+      h3.text-center Sin proyectos ingresados
+      hr
+      p.text-center= link_to 'Agregar proyectos', new_project_path, class: 'btn btn-default btn-lg'

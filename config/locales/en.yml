@@ -10,9 +10,17 @@ en:
   enumerize:
     project:
       commune:
-        ranco: "Lago Ranco"
-        bueno: "Río Bueno"
-        union: "La Unión"
+        corral: "Corral"
+        futrono: "Futrono"
+        la_union: "La Unión"
+        lago_ranco: "Lago Ranco"
+        lanco: "Lanco"
+        mariquina: "Mariquina"
+        paillaco: "Paillaco"
+        panguipulli: "Panguipulli"
+        rio_bueno: "Río Bueno"
+        valdivia: "Valdivia"
+
   activerecord:
     attributes:
       project:

@@ -1,0 +1,50 @@
+.panel.panel-default
+  .panel-heading
+    h4.text-center Datos proyecto FRIL
+  .panel-body
+    h4.text-center= @project.name
+    hr/
+    .row
+      .col-md-4
+        p.text-center
+          strong
+            | Comuna:
+          br/
+          = @project.commune.text
+      .col-md-4
+        p.text-center
+          strong
+            | Codigo visita:
+          br/
+          = @project.visit_id
+      .col-md-4
+        p.text-center
+          strong
+            | Origen de visita:
+          br/
+          = @project.origin_visit
+    hr/
+    .row
+      .col-md-4
+        p.text-center
+          strong
+            | Fecha de visita:
+          br/
+          = @project.date_visit.strftime('%d/%m/%Y')
+      .col-md-4
+        p.text-center
+          strong
+            | Linea FRIL:
+          br/
+          = @project.line
+      .col-md-4
+        p.text-center
+          strong
+            | Codigo IDI:
+          br/
+          = @project.idi
+
+  .panel-footer
+    .btn-group
+      = link_to 'Editar proyecto', edit_project_path, class: 'btn btn-default'
+      =link_to 'Cancelar', root_path, class: 'btn btn-default'

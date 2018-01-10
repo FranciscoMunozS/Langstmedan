@@ -1,0 +1,73 @@
+=tabs do |c|
+  - @project.observations.each do |observation|
+    - c.tab observation.action_plan do
+      br
+      .panel.panel-default
+        .panel-heading
+          h4.text-center Detalles de la observación
+        .panel-body
+          .row
+            .col-md-12
+              p.text-center
+                strong
+                  | Detalle de observación:
+              p.text-center= observation.observation_detail
+          hr
+          .row
+            .col-md-6
+              p.text-center
+                strong
+                  | Plan de acción:
+              p.text-center= observation.action_plan
+            .col-md-6
+              p.text-center
+                strong
+                  | Responsable:
+              p.text-center= observation.responsible
+          hr
+          .row
+            .col-md-4
+              p.text-center
+                strong
+                  |Oficio informa:
+              p.text-center= observation.office_observation
+            .col-md-4
+              p.text-center
+                strong Fecha oficio:
+              p.text-center= observation.office_date.try(:strftime, '%d/%m/%Y')
+            .col-md-4
+              p.text-center
+                strong ¿Cumple?
+              p.text-center= observation.meet? ? 'Si' : 'No'
+
+        - if observation.meet == false
+          hr
+          h4.text-center Incumplimiento
+          hr
+          .row
+            .col-md-4
+              p.text-center
+                strong Oficio informa incumplimiento:
+              p.text-center= observation.office_breach
+            .col-md-4
+              p.text-center
+                strong Fecha oficio incumplimiento:
+              p.text-center= observation.breach_date.try(:strftime, '%d/%m/%Y')
+            .col-md-4
+              p.text-center
+                strong Plazo N°2:
+              p.text-center= observation.term_second
+          hr
+          .row
+            .col-md-6
+              p.text-center
+                strong Responsable:
+              p.text-center= observation.responsible_second
+            .col-md-6
+              p.text-center
+                strong ¿Cumple?
+              p.text-center= observation.meet_second? ? 'Si' : 'No'
+        .panel-footer
+          .btn-group
+            = link_to 'Agregar observación', new_observation_path, class: 'btn btn-default'
+            = link_to 'Editar observación', edit_observation_path(observation), class: 'btn btn-default'

@@ -1,9 +1,12 @@
+- breadcrumb :observations
 = simple_form_for @observation do |f|
   = f.error_notification
   .panel.panel-default
+    .panel-heading
+      h2 Datos observaciones
     .panel-body
       .form-group
-        = f.association :project
+        = f.association :project, input_html: { style: "width: 100%" }
       .row
         .form-group.col-md-12
           = f.input :observation_detail, input_html: { class: 'form-control' }
@@ -43,6 +46,10 @@
       .row
         .col-md-12.text-center
           .btn-group
-            = f.button 'submit', class: 'btn btn-default'
-            = f.button :submit, "Guardar y agregar otra observación", name: 'create_and_add', class: 'btn btn-default'
-            = link_to 'Cancelar', root_path, class: 'btn btn-default'
+            - if params[:action] == "edit"
+              = f.button 'submit', class: 'btn btn-default'
+              = link_to 'Cancelar', root_path, class: 'btn btn-default'
+            - else
+              = f.button 'submit', class: 'btn btn-default'
+              = f.button :submit, "Guardar y agregar otra observación", name: 'create_and_add', class: 'btn btn-default'
+              = link_to 'Cancelar', root_path, class: 'btn btn-default'

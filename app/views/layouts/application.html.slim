@@ -1,13 +1,16 @@
 doctype html
 html
   head
-    title Langstmedan
+    title Längstmedån
     = csrf_meta_tags
 
     = stylesheet_link_tag    'application', media: 'all'
     = javascript_include_tag 'application'
   body
-    = render 'assets/nav'
-    .container
+    #wrapper
+      = render 'assets/nav'
+
+    #page-wrapper
       p#notice= notice
+      = raw breadcrumbs display_single_fragment: true, style: :bootstrap
       = yield

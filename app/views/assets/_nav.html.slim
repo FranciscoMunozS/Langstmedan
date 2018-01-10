@@ -1,18 +1,29 @@
-nav.navbar.navbar-default
-  .container
-    .container-fluid
-      .navbar-header
-        button.navbar-toggle.collapsed aria-expanded="false" data-target="#bs-example-navbar-collapse-1" data-toggle="collapse" type="button"
-          span.sr-only Toggle navigation
-          span.icon-bar
-          span.icon-bar
-          span.icon-bar
-        a.navbar-brand href="#"  Langstmedan
-      #bs-example-navbar-collapse-1.collapse.navbar-collapse
-        ul.nav.navbar-nav.navbar-right
-          li
-            a href="#"  Enlace 1
-          li
-            a href="#"  Enlace 2
-          li
-            a href="#"  Enlace 3
+nav.navbar.navbar-default.navbar-static-top role="navigation" style=("margin-bottom: 0")
+  .navbar-header
+    button.navbar-toggle data-target=".navbar-collapse" data-toggle="collapse" type="button"
+      span.sr-only Toggle navigation
+      span.icon-bar
+      span.icon-bar
+      span.icon-bar
+    a.navbar-brand href="/"  Langstmedan
+  ul.nav.navbar-top-links.navbar-right.pull-right
+    li.dropdown
+  .navbar-default.sidebar role="navigation"
+    .sidebar-nav.navbar-collapse
+      ul#side-menu.nav.in
+        li
+          a href="/"
+            i.fa.fa-dashboard.fa-fw
+            |  Inicio
+        li
+          a href="#"
+            i.fa.fa-bar-chart-o.fa-fw
+            |  Proyectos
+            span.fa.arrow
+          ul.nav.nav-second-level.collapse
+            li
+              = link_to 'Proyectos', projects_path()
+        li
+          a href="/pages/about"
+            i.fa.fa-info-circle.fa-fw
+            |  Acerca

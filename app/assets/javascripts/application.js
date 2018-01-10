@@ -1,17 +1,6 @@
-// This is a manifest file that'll be compiled into application.js, which will include all the files
-// listed below.
-//
-// Any JavaScript/Coffee file within this directory, lib/assets/javascripts, or any plugin's
-// vendor/assets/javascripts directory can be referenced here using a relative path.
-//
-// It's not advisable to add code directly here, but if you do, it'll appear at the bottom of the
-// compiled file. JavaScript code in this file should be added after the last require_* statement.
-//
-// Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
-// about supported directives.
-//
 //= require rails-ujs
 //= require jquery
+//= require bootstrap_sb_admin_base_v2
 //= require select2
 //= require select2_locale_es
 //= require bootstrap-sprockets
@@ -21,6 +10,7 @@
 
 $(document).ready(function() {
   $( "#observation_project_id" ).select2({
+    width: 'resolve',
     placeholder: 'Seleccione o busque un proyecto',
     allowClear: true,
     language: "es",
@@ -35,5 +25,14 @@ $(document).ready(function(){
     format: "dd/mm/yyyy",
     todayHighlight: true,
     clearBtn: true
+  });
+});
+
+$(document).ready(function(){
+  $('#sensors').DataTable({
+    "responsive": true,
+    "language": {
+      "url": "https://cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/Spanish.json"
+    }
   });
 });

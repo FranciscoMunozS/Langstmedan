@@ -25,7 +25,8 @@ gem 'gretel', '~> 3.0', '>= 3.0.9'
 gem 'rails-bootstrap-tabs', '~> 0.2.0'
 gem 'normalize-rails', '~> 4.1', '>= 4.1.1'
 gem 'bootstrap_sb_admin_base_v2'
-gem "font-awesome-rails"
+gem 'font-awesome-rails', '~> 4.7', '>= 4.7.0.3'
+gem 'devise', '~> 4.4'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]

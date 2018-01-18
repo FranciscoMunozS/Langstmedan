@@ -1,16 +1,17 @@
 class ProjectsController < ApplicationController
   before_action :find_project, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!
 
   def index
-    @projects = Project.paginate(:page => params[:page], :per_page => 5)
+    @projects = Project.all
   end
 
   def new
-    @project = Project.new
+    @project = current_user.projects.build
   end
 
   def create
-    @project = Project.new(project_params)
+    @project = current_user.projects.build(project_params)
 
     if params[:create_and_add]
       @project.save

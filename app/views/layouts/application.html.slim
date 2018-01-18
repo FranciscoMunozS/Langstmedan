@@ -8,9 +8,11 @@ html
     = javascript_include_tag 'application'
   body
     #wrapper
-      = render 'assets/nav'
-
-    #page-wrapper
-      p#notice= notice
-      = raw breadcrumbs display_single_fragment: true, style: :bootstrap
-      = yield
+      - if user_signed_in?
+        = render 'assets/nav'
+        #page-wrapper
+          = render 'assets/title'
+          = render 'assets/messages'
+          = yield
+      - else
+        = yield

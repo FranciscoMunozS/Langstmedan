@@ -8,6 +8,19 @@ nav.navbar.navbar-default.navbar-static-top role="navigation" style=("margin-bot
     a.navbar-brand href="/"  Langstmedan
   ul.nav.navbar-top-links.navbar-right.pull-right
     li.dropdown
+      a.dropdown-toggle data-toggle="dropdown" href="#"
+        i.fa.fa-user.fa-fw
+        i.fa.fa-caret-down
+      ul.dropdown-menu.dropdown-user
+        li
+          = link_to edit_user_registration_path do
+            i.fa.fa-user.fa-fw
+            |  Perfil
+        li.divider
+        li
+          = link_to destroy_user_session_path, method: :delete do
+            i.fa.fa-sign-out.fa-fw
+            |  Cerrar sesión
   .navbar-default.sidebar role="navigation"
     .sidebar-nav.navbar-collapse
       ul#side-menu.nav.in
@@ -23,7 +36,17 @@ nav.navbar.navbar-default.navbar-static-top role="navigation" style=("margin-bot
           ul.nav.nav-second-level.collapse
             li
               = link_to 'Proyectos', projects_path()
+            li
+              = link_to 'Crear proyecto', new_project_path()
         li
-          a href="/pages/about"
+          a href="#"
+            i.fa.fa-bars.fa-fw
+            |  Observaciones
+            span.fa.arrow
+          ul.nav.nav-second-level.collapse
+            li
+              = link_to 'Crear observación', new_observation_path()
+        li
+          a href="#"
             i.fa.fa-info-circle.fa-fw
             |  Acerca

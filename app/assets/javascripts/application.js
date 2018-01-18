@@ -1,11 +1,10 @@
 //= require rails-ujs
 //= require jquery
-//= require bootstrap_sb_admin_base_v2
 //= require select2
 //= require select2_locale_es
-//= require bootstrap-sprockets
 //= require bootstrap-datepicker
 //= require bootstrap-datepicker/locales/bootstrap-datepicker.es.js
+//= require bootstrap_sb_admin_base_v2
 //= require_tree .
 
 $(document).ready(function() {
@@ -21,15 +20,17 @@ $(document).ready(function() {
 $(document).ready(function(){
   $('.datepicker').datepicker({
     language: "es",
-    todayBtn: "linked",
     format: "dd/mm/yyyy",
-    todayHighlight: true,
-    clearBtn: true
+    todayHighlight: true
   });
 });
 
 $(document).ready(function(){
-  $('#sensors').DataTable({
+  $('#notice').alert('close')
+});
+
+$(document).ready(function(){
+  $('#projects').DataTable({
     "responsive": true,
     "language": {
       "url": "https://cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/Spanish.json"

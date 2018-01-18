@@ -1,0 +1,22 @@
+<div id="signin">
+  <div class="col-md-offset-4 col-md-4">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h2 class="text-center">Iniciar sesión</h2>
+      </div>
+      <div class="panel-body">
+        <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+          <div class="form-group">
+            <%= f.input :email, label: false, placeholder: 'Correo electronico', required: false, autofocus: true %>
+            <%= f.input :password, label: false, placeholder: 'Contraseña', required: false %>
+          </div>
+      </div>
+      <div class="panel-footer">
+        <div class="form-group">
+          <%= f.button :submit, "Iniciar sesión", class: 'btn btn-primary btn-lg btn-block' %>
+        </div>
+      </div>
+    </div>
+    <% end %>
+  </div>
+</div>

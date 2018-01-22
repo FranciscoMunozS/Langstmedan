@@ -1,3 +1,14 @@
+# projects
+#  t.string  :name
+#  t.string  :commune
+#  t.string  :origin_visit
+#  t.date    :date_visit
+#  t.string  :line
+#  t.string  :idi
+#  t.integer :visit_id
+#  t.string  :visit_booklet
+#  t.string  :report_made
+
 class Project < ApplicationRecord
   extend Enumerize
 
@@ -6,4 +17,42 @@ class Project < ApplicationRecord
   has_many :observations
 
   enumerize :commune, in: [:corral, :futrono, :la_union, :lago_ranco, :lanco, :mariquina, :paillaco, :panguipulli, :rio_bueno, :valdivia]
+
+
+  enum status: {  draft: 0, published: 1, pending: 2, warned: 3, normal: 4, completed: 5, closed: 6 } do
+
+    event :begin do
+      transition :draft => :published
+    end
+
+    event :first_alert do
+      transition [:published, :draft] => :pending
+    end
+
+    event :second_alert do
+      transition [:published, :draft, :pending] => :warned
+    end
+
+    event :normal_status do
+      transition [:draft, :published, :pending, :warned] => :normal
+    end
+
+    event :done do
+      transition [:draft, :published, :pending, :warned, :normal] => :completed
+    end
+
+    event :finished do
+      transition all - [:closed] => :closed
+    end
+  end
+
+  attr_accessor :state_event
+
+  after_save :trigger_state, if: :state_event
+
+  private
+
+  def trigger_state
+    send(state_event) if send(:"can_#{state_event}?")
+  end
 end

@@ -1,5 +1,6 @@
 class ObservationsController < ApplicationController
   before_action :find_observation, only: [:show, :edit, :update]
+  before_action :authenticate_user! 
 
   def new
     @observation = Observation.new
@@ -13,7 +14,7 @@ class ObservationsController < ApplicationController
       redirect_to request.referrer, notice: "Observación creada correctamente"
     else
       @observation.save
-      redirect_to @observation, notice: "Observación creada correctamente"
+      redirect_to root_path, notice: "Observación creada correctamente"
     end
   end
 
@@ -25,7 +26,7 @@ class ObservationsController < ApplicationController
 
   def update
     if @observation.update(observation_params)
-      redirect_to @observation, notice: "Observación actualizada correctamente"
+      redirect_to root_path, notice: "Observación actualizada correctamente"
     else
       render 'edit'
     end

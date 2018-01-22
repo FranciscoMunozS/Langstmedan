@@ -7,6 +7,7 @@ en:
       observation:
         create: "Crear observación"
         update: "Actualizar observación"
+
   enumerize:
     project:
       commune:
@@ -37,6 +38,9 @@ en:
         file: "Adjunto de cartilla de visita"
         attachment: "Adjunto de informe de cometido"
         observations: "Observaciones"
+        statuses:
+          published: "En seguimiento"
+          draft: "Privado"
       observation:
         project: Proyectos
         observation_detail: "Detalle de observaciones"

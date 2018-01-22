@@ -5,23 +5,28 @@
         thead
           tr
             th.text-center Nombre de proyecto
-            th.text-center Visita
-            th.text-center Fecha de visita
             th.text-center Comuna
             th.text-center Observaciones
+            th.text-center Estado
             th.text-center Acciones
         tbody
           - @projects.each do |project|
             tr
               td.text-center= project.name
-              td.text-center= project.origin_visit
-              td.text-center= project.date_visit
               td.text-center= project.commune.text
               td.text-center= project.observations.count
+              - if project.status === 'published'
+                td.text-center
+                  span.label.label-success
+                    = Project.translate_enum_name :status, project.status
+              - if project.status === 'draft'
+                td.text-center
+                  span.label.label-default
+                    = Project.translate_enum_name :status, project.status
               td.text-center
                 .btn-group
                   = link_to project, class: 'btn btn-default btn-sm' do
-                    span.glyphicon.glyphicon-eye-open
+                    span.glyphicon.glyphicon-eye-open aria-hidden="true"
                   = link_to edit_project_path(project), class: 'btn btn-default btn-sm' do
                     span.glyphicon.glyphicon-edit aria-hidden="true"
                   = link_to project_path(project), method: :delete,  data: {confirm: 'Esta seguro que desea eliminar el registro?'}, class: 'btn btn-default btn-sm' do

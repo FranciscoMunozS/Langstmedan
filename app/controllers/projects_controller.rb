@@ -44,10 +44,21 @@ class ProjectsController < ApplicationController
   private
 
   def project_params
-    params.require(:project).permit!
+    params.require(:project).permit(:state_event, :name, :commune, :origin_visit, :date_visit, :line, :idi, :visit_id, :visit_booklet, :report_made)
   end
 
   def find_project
     @project = Project.find(params[:id])
   end
 end
+
+# projects
+#  t.string  :name
+#  t.string  :commune
+#  t.string  :origin_visit
+#  t.date    :date_visit
+#  t.string  :line
+#  t.string  :idi
+#  t.integer :visit_id
+#  t.string  :visit_booklet
+#  t.string  :report_made

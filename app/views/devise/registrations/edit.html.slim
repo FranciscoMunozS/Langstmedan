@@ -1,0 +1,19 @@
+- content_for(:page_header) do
+  | Editar usuario
+.panel.panel-default
+  .panel-heading
+    h3
+      | Editar datos de #{@user.email}
+  = simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f|
+    .panel-body
+      = f.error_notification
+      .form-inputs
+        = f.input :email, label: "Correo electronico", required: true, autofocus: true
+        - if devise_mapping.confirmable? && resource.pending_reconfirmation?
+          p
+            | Actualmente esperando confirmación para : #{resource.unconfirmed_email}
+        = f.input :password, label: "Contraseña", autocomplete: "off", hint: "Dejar en blanco si no quiere hacer modificaciones", required: false
+        = f.input :password_confirmation, label: "Confirmar contraseña", required: false
+        = f.input :current_password, label: "Contraseña actual", hint: "Necesitamos su contraseña actual para hacer los cambios", required: true
+    .panel-footer
+      = f.button :submit, "Actualizar usuario", class: 'btn btn-default'

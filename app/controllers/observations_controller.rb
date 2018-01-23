@@ -1,9 +1,11 @@
 class ObservationsController < ApplicationController
   before_action :find_observation, only: [:show, :edit, :update]
-  before_action :authenticate_user! 
+  before_action :authenticate_user!
 
   def new
     @observation = Observation.new
+
+    @projects = Project.all
   end
 
   def create
@@ -19,9 +21,11 @@ class ObservationsController < ApplicationController
   end
 
   def show
+    @projects = Project.all
   end
 
   def edit
+    @projects = Project.all
   end
 
   def update

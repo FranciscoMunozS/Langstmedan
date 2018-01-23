@@ -1,0 +1,13 @@
+.panel.panel-default
+  .panel-heading
+    h4.text-center Estado del proyecto y observaciones
+  .panel-body
+    ul.list-inline
+      li
+        p
+          strong Estado proyecto:
+        - if @project.status === 'draft'
+      li
+        h4
+          span.label.label-default
+            = Project.translate_enum_name :status, @project.status

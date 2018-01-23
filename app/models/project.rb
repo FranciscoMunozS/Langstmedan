@@ -50,7 +50,12 @@ class Project < ApplicationRecord
 
   after_save :trigger_state, if: :state_event
 
+
   private
+
+  def self.notification_counter
+    Project.where(:status => "draft")
+  end
 
   def trigger_state
     send(state_event) if send(:"can_#{state_event}?")

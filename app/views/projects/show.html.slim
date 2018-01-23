@@ -14,24 +14,4 @@
           = link_to 'Agregar observaciones', new_observation_path, class: 'btn btn-default'
 .row
   .col-md-4
-    .panel.panel-default
-      .panel-heading
-        h4.text-center Estado del proyecto y observaciones
-      .panel-body
-        ul.list-inline
-          li
-            p
-              strong Estado proyecto:
-            - if @project.status === 'draft'
-          li
-            h4
-              span.label.label-default
-                = Project.translate_enum_name :status, @project.status
-        hr
-        - if @project.observations.exists?
-          p
-            strong Estado observaciones:
-          = render 'assets/observation_assets/observation_status'
-        - else
-          p.text-center
-            strong Proyecto sin observaciones
+    = render 'assets/project_assets/project_status'

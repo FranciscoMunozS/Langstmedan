@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  commune: MyString
+  observation: MyText
+  observation_date: 2018-01-25
+  compliance_date: 2018-01-25
+  meet: false
+
+two:
+  commune: MyString
+  observation: MyText
+  observation_date: 2018-01-25
+  compliance_date: 2018-01-25
+  meet: false

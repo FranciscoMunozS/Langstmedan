@@ -7,6 +7,9 @@ en:
       observation:
         create: "Crear observación"
         update: "Actualizar observación"
+      meeting:
+        create: "Crear reunión"
+        update: "Actualizar reunión"
 
   enumerize:
     project:
@@ -50,11 +53,18 @@ en:
         due_date: "Fecha vencimiento plazo"
         responsible: "Responsable"
         meet: "¿Cumple?"
+        other_background: "Otros antecedentes"
         office_breach: "Oficio informa incumplimiento"
         breach_date: "Fecha oficio incumplimiento"
         term_second: "Plazo n° 2"
         responsible_second: "Responsable"
         meet_second: "¿Cumple?"
+      meeting:
+        commune: "Comuna"
+        observation: "Observación"
+        observation_date: "Fecha de observación"
+        compliance_date: "Fecha de cumplimiento"
+        meet: "¿Cumple?"
 
   will_paginate:
     previous_label: "&#8592; Anterior"

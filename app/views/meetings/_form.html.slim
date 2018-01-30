@@ -1,0 +1,30 @@
+= simple_form_for @meeting do |f|
+  = f.error_notification
+  .panel.panel-default
+    .panel-heading
+      h2 Datos reuniones
+    .panel-body
+      .row
+        .form-group.col-md-12
+          = f.input :commune, input_html: { class: 'form-control' }
+        .form-group.col-md-12
+          = f.input :observation, input_html: { class: 'form-control' }
+        .form-group.col-md-12
+          = f.input :observation_date, as: :string, input_html: { class: 'datepicker' }
+        .form-group.col-md-12
+          = f.input :compliance_date, as: :string, input_html: { class: 'datepicker' }
+        .form-group.col-md-12
+          .form-check
+            label.form-check-label
+              = f.input :meet, input_html: { class: 'form-check-input' }
+    .panel-footer
+      .row
+        .col-md-12.text-center
+          .btn-group
+            - if params[:action] == 'edit'
+              = f.button 'submit', class: 'btn btn-default'
+              = link_to 'Cancelar', root_path, class: 'btn btn-default'
+            - else
+              = f.button 'submit', class: 'btn btn-default'
+              = f.button :submit, "Guardar y agregar otra reunión", name: 'create_and_add', class: 'btn btn-default'
+              = link_to 'Cancelar', root_path, class: 'btn btn-default'

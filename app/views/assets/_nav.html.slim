@@ -49,5 +49,15 @@ nav.navbar.navbar-default.navbar-static-top role="navigation" style=("margin-bot
               = link_to 'Crear observación', new_observation_path()
         li
           a href="#"
-            i.fa.fa-info-circle.fa-fw
-            |  Acerca
+            i.fa.fa-clock-o.fa-fw
+            |  Reuniones
+            span.fa.arrow
+          ul.nav.nav-second-level.collapse
+            li
+              = link_to 'Reuniones', meetings_path()
+            li
+              = link_to 'Crear reunión', new_meeting_path()
+          li
+            a href="#"
+              i.fa.fa-info-circle.fa-fw
+              |  Acerca

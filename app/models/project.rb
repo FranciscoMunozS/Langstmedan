@@ -16,7 +16,11 @@ class Project < ApplicationRecord
 
   has_many :observations
 
+  validates :idi, uniqueness: true
+
   enumerize :commune, in: [:corral, :futrono, :la_union, :lago_ranco, :lanco, :mariquina, :paillaco, :panguipulli, :rio_bueno, :valdivia]
+
+  enumerize :line, in: [:ley2012, :ley2013, :ley2014, :ley2015, :ley2017, :participacion2014, :participacion2015, :participacion2017 ]
 
 
   enum status: {  draft: 0, published: 1, pending: 2, warned: 3, normal: 4, completed: 5, closed: 6 } do

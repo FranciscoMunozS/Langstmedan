@@ -28,8 +28,6 @@ gem 'bootstrap_sb_admin_base_v2'
 gem 'font-awesome-rails', '~> 4.7', '>= 4.7.0.3'
 gem 'devise', '~> 4.4'
 gem 'stateful_enum', '~> 0.4.0'
-gem 'wdm', '~> 0.1.1'
-gem 'bcrypt', git: 'https://github.com/codahale/bcrypt-ruby.git', :require => 'bcrypt'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]

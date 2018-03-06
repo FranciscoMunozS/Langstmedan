@@ -1,11 +1,17 @@
 //= require rails-ujs
 //= require jquery
+//= require underscore
+//= require dependent-fields
 //= require select2
 //= require select2_locale_es
 //= require bootstrap-datepicker
 //= require bootstrap-datepicker/locales/bootstrap-datepicker.es.js
 //= require bootstrap_sb_admin_base_v2
 //= require_tree .
+
+$(document).ready(function() {
+  DependentFields.bind()
+});
 
 $(document).ready(function() {
   $( "#observation_project_id" ).select2({

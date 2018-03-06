@@ -14,26 +14,6 @@
       .col-md-4
         p.text-center
           strong
-            | Codigo visita:
-          br/
-          = @project.visit_id
-      .col-md-4
-        p.text-center
-          strong
-            | Origen de visita:
-          br/
-          = @project.origin_visit
-    hr/
-    .row
-      .col-md-4
-        p.text-center
-          strong
-            | Fecha de visita:
-          br/
-          = @project.date_visit.strftime('%d/%m/%Y')
-      .col-md-4
-        p.text-center
-          strong
             | Linea FRIL:
           br/
           = @project.line

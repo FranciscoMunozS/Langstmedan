@@ -7,6 +7,24 @@
       .form-group
         = f.association :project, input_html: { style: "width: 100%" }
       .row
+        .col-md-12
+          = f.input :options, input_html: { class: 'form-control' }, collection: ['Visita terreno', 'Reunión', 'Informado por Unidad Técnica']
+
+          .js-dependent-fields[data-select-id='observation_options' data-option-value='Visita terreno']
+            = f.input :visit_date, as: :string, input_html: { class: 'datepicker' }
+            = f.input :visit_booklet, input_html: { class: 'form-control' }
+            = f.input :report_made, input_html: { class: 'form-control' }
+
+          .js-dependent-fields[data-select-id='observation_options' data-option-value='Reunión']
+            = f.input :reunion_date, as: :string, input_html: { class: 'datepicker' }
+            = f.input :reunion_place, input_html: { class: 'form-control' }
+            = f.input :reunion_commune, input_html: { class: 'form-control' }
+
+          .js-dependent-fields[data-select-id='observation_options' data-option-value='Informado por Unidad Técnica']
+            = f.input :technical_date, as: :string, input_html: { class: 'datepicker' }
+            = f.input :technical_commune, input_html: { class: 'form-control' }
+
+      .row
         .form-group.col-md-12
           = f.input :observation_detail, input_html: { class: 'form-control' }
         .form-group.col-md-12

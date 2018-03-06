@@ -28,6 +28,8 @@ gem 'bootstrap_sb_admin_base_v2'
 gem 'font-awesome-rails', '~> 4.7', '>= 4.7.0.3'
 gem 'devise', '~> 4.4'
 gem 'stateful_enum', '~> 0.4.0'
+gem 'underscore-rails', '~> 1.8', '>= 1.8.3'
+gem 'dependent-fields-rails', '~> 0.4.2'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]

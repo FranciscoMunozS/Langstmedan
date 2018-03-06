@@ -32,12 +32,12 @@ ActiveRecord::Schema.define(version: 20180306141933) do
     t.date "office_date"
     t.date "due_date"
     t.string "responsible"
-    t.boolean "meet"
+    t.string "meet"
     t.string "office_breach"
     t.date "breach_date"
     t.string "term_second"
     t.string "responsible_second"
-    t.boolean "meet_second"
+    t.string "meet_second"
     t.integer "project_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

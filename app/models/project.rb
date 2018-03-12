@@ -18,7 +18,7 @@ class Project < ApplicationRecord
 
   validates :idi, uniqueness: true
 
-  enumerize :commune, in: [:corral, :futrono, :la_union, :lago_ranco, :lanco, :mariquina, :paillaco, :panguipulli, :rio_bueno, :valdivia]
+  enumerize :commune, in: [:corral, :futrono, :la_union, :lago_ranco, :mafil, :lanco, :mariquina, :paillaco, :panguipulli, :rio_bueno, :valdivia, :los_lagos]
 
   enumerize :line, in: [:ley2012, :ley2013, :ley2014, :ley2015, :ley2017, :participacion2014, :participacion2015, :participacion2017 ]
 

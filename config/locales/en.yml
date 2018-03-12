@@ -24,6 +24,35 @@ en:
         panguipulli: "Panguipulli"
         rio_bueno: "Río Bueno"
         valdivia: "Valdivia"
+        mafil: "Mafil"
+        los_lagos: "Los Lagos"
+    observation:
+        reunion_commune:
+          corral: "Corral"
+          futrono: "Futrono"
+          la_union: "La Unión"
+          lago_ranco: "Lago Ranco"
+          lanco: "Lanco"
+          mariquina: "Mariquina"
+          paillaco: "Paillaco"
+          panguipulli: "Panguipulli"
+          rio_bueno: "Río Bueno"
+          valdivia: "Valdivia"
+          mafil: "Mafil"
+          los_lagos: "Los Lagos"
+        technical_commune:
+          corral: "Corral"
+          futrono: "Futrono"
+          la_union: "La Unión"
+          lago_ranco: "Lago Ranco"
+          lanco: "Lanco"
+          mariquina: "Mariquina"
+          paillaco: "Paillaco"
+          panguipulli: "Panguipulli"
+          rio_bueno: "Río Bueno"
+          valdivia: "Valdivia"
+          mafil: "Mafil"
+          los_lagos: "Los Lagos"
 
   activerecord:
     attributes:

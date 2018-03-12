@@ -10,21 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180312123220) do
+ActiveRecord::Schema.define(version: 20180312154524) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
-
-  create_table "meetings", force: :cascade do |t|
-    t.string "commune"
-    t.text "observation"
-    t.date "observation_date"
-    t.date "compliance_date"
-    t.boolean "meet"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.integer "user_id"
-  end
 
   create_table "observations", force: :cascade do |t|
     t.string "action_plan"
@@ -54,6 +43,7 @@ ActiveRecord::Schema.define(version: 20180312123220) do
     t.string "technical_commune"
     t.string "reunion_file"
     t.string "technical_file"
+    t.integer "code"
   end
 
   create_table "projects", force: :cascade do |t|

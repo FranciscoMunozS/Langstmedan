@@ -1,6 +1,6 @@
 =tabs do |c|
   - @project.observations.each do |observation|
-    - c.tab observation.action_plan do
+    - c.tab 'Observación' do
       br
       .panel.panel-default
         .panel-heading
@@ -12,6 +12,93 @@
                 strong
                   | Detalle de observación:
               p.text-center= observation.observation_detail
+          - if observation.technical_date?
+            hr
+            .row
+              .col-md-12
+                p.text-center
+                  strong
+                   | Informado por unidad tecnica:
+            .row
+              .col-md-4
+                p.text-center
+                  strong
+                    | Fecha:
+                p.text-center= observation.technical_date.try(:strftime, '%d/%m/%Y')
+              .col-md-4
+                p.text-center
+                  strong
+                    | Comuna:
+                p.text-center= observation.technical_commune.text
+              .col-md-4
+                p.text-center
+                  strong
+                    | Respaldo adjunto:
+                - if observation.technical_file?
+                  p.text-center= link_to 'Descargar', observation.technical_file.url, class: 'btn btn-primary'
+                - else
+                  p.text-center Sin respaldo adjunto
+          - if observation.reunion_date?
+            hr
+            .row
+              .col-md-12
+                p.text-center
+                  strong
+                   | Reunión:
+            .row
+              .col-md-4
+                p.text-center
+                  strong
+                    | Fecha de reunion:
+                p.text-center= observation.reunion_date.try(:strftime, '%d/%m/%Y')
+              .col-md-4
+                p.text-center
+                  strong
+                    | Lugar de reunion:
+                p.text-center= observation.reunion_place
+              .col-md-4
+                p.text-center
+                  strong
+                    | Comuna:
+                p.text-center= observation.reunion_commune.text
+            .row
+              .col-md-12
+                p.text-center
+                  strong
+                    | Acta de reunión:
+                - if observation.reunion_file?
+                  p.text-center= link_to 'Descargar', observation.reunion_file.url, class: 'btn btn-primary'
+                - else
+                  p.text-center Sin acta de reunión adjunta
+          - if observation.visit_date?
+            hr
+            .row
+              .col-md-12
+                p.text-center
+                  strong
+                   | Visita:
+            .row
+              .col-md-4
+                p.text-center
+                  strong
+                    | Fecha de visita
+                p.text-center= observation.visit_date.try(:strftime, '%d/%m/%Y')
+              .col-md-4
+                p.text-center
+                  strong
+                    | Informe de cometido:
+                - if observation.report_made?
+                  p.text-center= link_to 'Descargar', observation.report_made.url, class: 'btn btn-primary'
+                - else
+                  p.text-center Sin informe de cometido adjunto
+              .col-md-4
+                p.text-center
+                  strong
+                    | Cartilla de visita:
+                  - if observation.visit_booklet?
+                    p.text-center= link_to 'Descargar', observation.visit_booklet.url, class: 'btn btn-primary'
+                  - else
+                    p.text-center Sin cartilla de visita adjunto
           hr
           .row
             .col-md-6

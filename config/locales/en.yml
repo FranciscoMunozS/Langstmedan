@@ -93,6 +93,7 @@ en:
         term_second: "Plazo n° 2"
         responsible_second: "Responsable"
         meet_second: "¿Cumple?"
+        last_observation: ""
       meeting:
         commune: "Comuna"
         observation: "Observación"

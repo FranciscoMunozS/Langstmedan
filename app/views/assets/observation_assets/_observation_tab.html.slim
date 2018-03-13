@@ -125,9 +125,12 @@
             .col-md-4
               p.text-center
                 strong ¿Cumple?
-              p.text-center= observation.meet? ? 'Si' : 'No'
+              - if observation.meet != "Si"
+                p.text-center No
+              - else
+                p.text-center Si
 
-        - if observation.meet == false
+        - if observation.meet != true
           hr
           h4.text-center Incumplimiento
           hr
@@ -153,7 +156,10 @@
             .col-md-6
               p.text-center
                 strong ¿Cumple?
-              p.text-center= observation.meet_second? ? 'Si' : 'No'
+              - if observation.meet_second != "Si"
+                p.text-center No
+              - else
+                p.text-center Si
         .panel-footer
           .btn-group
             = link_to 'Agregar observación', new_observation_path, class: 'btn btn-default'

@@ -57,8 +57,11 @@
         .form-group.col-md-12
           = f.input :other_background, input_html: { class: 'form-control' }
         .form-group.col-md-12
-          = f.input :meet, input_html: { class: 'form-check-input' }, collection: ['Si', 'No'], as: :radio_buttons
-          .js-dependent-fields[data-radio-name='observation[meet]' data-radio-value='No']
+          - if params[:action] == "edit"
+            = f.input :meet, input_html: { class: 'form-check-input' }, collection: ['Si', 'No'], disabled: true
+          - else
+            = f.input :meet, input_html: { class: 'form-check-input' }, collection: ['Si', 'No']
+          .js-dependent-fields[data-select-id='observation_meet' data-option-value='No']
             .panel.panel-default
               .panel-heading
                 h4 Datos de no cumplimiento
@@ -72,7 +75,13 @@
                 .form-group.col-md-12
                   = f.input :responsible_second, input_html: { class: 'form-control' }
                 .form-group.col-md-12
-                  = f.input :meet_second, input_html: { class: 'form-check-input' }, collection: ['Si', 'No'], as: :radio_buttons
+                  = f.input :meet_second, input_html: { class: 'form-check-input' }, collection: ['Si', 'No']
+                  .js-dependent-fields[data-select-id='observation_meet_second' data-option-value='No']
+                    .panel.panel-default
+                      .panel-heading
+                        h4 Observación
+                      .panel-body
+                        = f.input :last_observation, input_html: { class: 'form-control' }
     .panel-footer
       .row
         .col-md-12.text-center

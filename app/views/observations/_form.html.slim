@@ -8,7 +8,10 @@
         = f.association :project, input_html: { style: "width: 100%" }
       .row
         .col-md-12
-          = f.input :options, input_html: { class: 'form-control' }, collection: ['Visita terreno', 'Reunión', 'Informado por unidad técnica']
+          - if params[:action] == "edit"
+            = f.input :options, input_html: { class: 'form-control' }, collection: ['Visita terreno', 'Reunión', 'Informado por unidad técnica'], disabled: true
+          - else
+            = f.input :options, input_html: { class: 'form-control' }, collection: ['Visita terreno', 'Reunión', 'Informado por unidad técnica']
 
           .js-dependent-fields[data-select-id='observation_options' data-option-value='Visita terreno']
             .panel.panel-default

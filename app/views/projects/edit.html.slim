@@ -1,9 +1,12 @@
 - content_for(:page_header) do
   | Editar proyecto
-= render 'form'
-
-- if @project.status != 'published'
-  .btn-group
-  = simple_form_for(@project) do |f|
-    = f.hidden_field :state_event, value: :begin
-    = f.submit 'Publicar proyecto', class: 'btn btn-default'
+.row
+  .col-md-12
+    - if @project.status != 'published'
+      = simple_form_for(@project) do |f|
+        = f.hidden_field :state_event, value: :begin
+        = f.submit 'Publicar proyecto', class: 'btn btn-success'
+    br
+.row
+  .col-md-12
+    = render 'form'

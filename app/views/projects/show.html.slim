@@ -3,6 +3,7 @@
 .row
   .col-md-4
     = render 'assets/project_assets/project_detail'
+    = render 'assets/project_assets/project_status'
   .col-md-8
     - if @project.observations.exists?
       = render 'assets/observation_assets/observation_tab'
@@ -12,6 +13,3 @@
           h3 Proyecto sin observaciones
         .panel-footer.text-center
           = link_to 'Agregar observaciones', new_observation_path, class: 'btn btn-default'
-.row
-  .col-md-4
-    = render 'assets/project_assets/project_status'

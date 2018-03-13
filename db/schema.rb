@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180312154524) do
+ActiveRecord::Schema.define(version: 20180313133939) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -43,7 +43,6 @@ ActiveRecord::Schema.define(version: 20180312154524) do
     t.string "technical_commune"
     t.string "reunion_file"
     t.string "technical_file"
-    t.integer "code"
   end
 
   create_table "projects", force: :cascade do |t|

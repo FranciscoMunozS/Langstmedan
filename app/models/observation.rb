@@ -1,8 +1,6 @@
 class Observation < ApplicationRecord
   extend Enumerize
 
-  auto_increment :code
-
   belongs_to :project
 
   enumerize :reunion_commune, in: [:corral, :futrono, :la_union, :lago_ranco, :mafil, :lanco, :mariquina, :paillaco, :panguipulli, :rio_bueno, :valdivia, :los_lagos]

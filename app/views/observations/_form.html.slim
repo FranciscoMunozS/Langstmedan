@@ -21,6 +21,26 @@
                 = f.input :visit_date, as: :string, input_html: { class: 'datepicker' }
                 = f.input :visit_booklet
                 = f.input :report_made
+                - if @observation.report_made? && @observation.visit_booklet?
+                  .panel.panel-default
+                    .panel-heading
+                      p Documentos
+                    .panel-body
+                      .col
+                        p Cartilla de visita:
+                        p= @observation.visit_booklet.file.filename
+                        p= link_to 'Ver', @observation.visit_booklet.url
+                        - if @observation.visit_booklet?
+                          p.text-danger= f.input :remove_visit_booklet, label: "Quitar cartilla de visita", as: :boolean, input_html: { class: "checkbox" }
+                      hr
+                      .col
+                        p Informe de Cometido:
+                        p= @observation.report_made.file.filename
+                        p= link_to 'Ver', @observation.report_made.url
+                        - if @observation.report_made?
+                          p.text-danger= f.input :remove_report_made, label: "Quitar informe de cometido", as: :boolean, input_html: { class: "checkbox" }
+                - else
+                  p Sin documentación adjunta
 
           .js-dependent-fields[data-select-id='observation_options' data-option-value='Reunión']
             .panel.panel-default
@@ -31,6 +51,17 @@
                 = f.input :reunion_place, input_html: { class: 'form-control' }
                 = f.input :reunion_commune, input_html: { class: 'form-control' }
                 = f.input :reunion_file
+                - if @observation.reunion_file?
+                  .panel.panel-default
+                    .panel-heading
+                      p Documentos
+                    .panel-body
+                      p= @observation.reunion_file.file.filename
+                      p= link_to 'Ver', @observation.reunion_file.url
+                      - if @observation.reunion_file?
+                        p.text-danger= f.input :remove_reunion_file, label: "Quitar acta de reunión", as: :boolean, input_html: { class: "checkbox" }
+                - else
+                  p Sin documentación adjunta
 
           .js-dependent-fields[data-select-id='observation_options' data-option-value='Informado por unidad técnica']
             .panel.panel-default
@@ -40,6 +71,15 @@
                 = f.input :technical_date, as: :string, input_html: { class: 'datepicker' }
                 = f.input :technical_commune, input_html: { class: 'form-control' }
                 = f.input :technical_file
+                - if @observation.technical_file?
+                  .panel.panel-default
+                    .panel-heading
+                      p Documentos
+                    .panel-body
+                      p= @observation.technical_file.file.filename
+                      p= link_to 'Ver', @observation.technical_file.url
+                - if @observation.technical_file?
+                  = f.input :remove_technical_file, as: :boolean
 
       .row
         .form-group.col-md-12
@@ -57,8 +97,11 @@
         .form-group.col-md-12
           = f.input :other_background, input_html: { class: 'form-control' }
         .form-group.col-md-12
-          - if params[:action] == "edit"
-            = f.input :meet, input_html: { class: 'form-check-input' }, collection: ['Si', 'No'], disabled: true
+          - if @observation.meet?
+            - if params[:action] == "edit"
+              = f.input :meet, input_html: { class: 'form-check-input' }, collection: ['Si', 'No'], disabled: true
+            - else
+              = f.input :meet, input_html: { class: 'form-check-input' }, collection: ['Si', 'No']
           - else
             = f.input :meet, input_html: { class: 'form-check-input' }, collection: ['Si', 'No']
           .js-dependent-fields[data-select-id='observation_meet' data-option-value='No']

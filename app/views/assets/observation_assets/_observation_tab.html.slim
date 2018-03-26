@@ -160,6 +160,15 @@
                 p.text-center No
               - else
                 p.text-center Si
+        - if observation.meet_second != true
+          hr
+          h4.text-center Segundo incumplimiento
+          hr
+           .row
+            .col-md-12
+              p.text-center
+                strong Observación
+              p.text-center= observation.last_observation
         .panel-footer
           .btn-group
             = link_to 'Agregar observación', new_observation_path, class: 'btn btn-default'

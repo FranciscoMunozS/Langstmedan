@@ -28,14 +28,18 @@
                     .panel-body
                       .col
                         p Cartilla de visita:
-                        p= @observation.visit_booklet.file.filename
+                        p
+                          i.fa.fa-file-pdf-o.fa-fw
+                          = @observation.visit_booklet.file.filename
                         p= link_to 'Ver', @observation.visit_booklet.url
                         - if @observation.visit_booklet?
                           p.text-danger= f.input :remove_visit_booklet, label: "Quitar cartilla de visita", as: :boolean, input_html: { class: "checkbox" }
                       hr
                       .col
                         p Informe de Cometido:
-                        p= @observation.report_made.file.filename
+                        p
+                          i.fa.fa-file-pdf-o.fa-fw
+                          = @observation.report_made.file.filename
                         p= link_to 'Ver', @observation.report_made.url
                         - if @observation.report_made?
                           p.text-danger= f.input :remove_report_made, label: "Quitar informe de cometido", as: :boolean, input_html: { class: "checkbox" }
@@ -56,7 +60,9 @@
                     .panel-heading
                       p Documentos
                     .panel-body
-                      p= @observation.reunion_file.file.filename
+                      p
+                        i.fa.fa-file-pdf-o.fa-fw
+                        = @observation.reunion_file.file.filename
                       p= link_to 'Ver', @observation.reunion_file.url
                       - if @observation.reunion_file?
                         p.text-danger= f.input :remove_reunion_file, label: "Quitar acta de reunión", as: :boolean, input_html: { class: "checkbox" }
@@ -76,7 +82,9 @@
                     .panel-heading
                       p Documentos
                     .panel-body
-                      p= @observation.technical_file.file.filename
+                      p
+                        i.fa.fa-file-pdf-o.fa-fw
+                        = @observation.technical_file.file.filename
                       p= link_to 'Ver', @observation.technical_file.url
                 - if @observation.technical_file?
                   = f.input :remove_technical_file, as: :boolean

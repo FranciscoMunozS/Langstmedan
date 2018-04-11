@@ -130,7 +130,7 @@
               - else
                 p.text-center Si
 
-        - if observation.meet != true
+        - if observation.meet != true && observation.responsible_second?
           hr
           h4.text-center Incumplimiento
           hr
@@ -160,7 +160,7 @@
                 p.text-center No
               - else
                 p.text-center Si
-        - if observation.meet_second != true
+        - if observation.meet_second != true && observation.last_observation?
           hr
           h4.text-center Segundo incumplimiento
           hr

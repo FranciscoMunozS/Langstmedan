@@ -1,0 +1,17 @@
+.panel.panel-default
+  .panel-body
+    table.table-hover.display.table cellspacing="0" width="100%"
+      thead
+        tr
+          th.text-center Corre electronico
+          th.text-center Roles
+      tbody
+        - @users.each do |user|
+          tr
+            td.text-center= user.email
+            td.text-center= user.roles.first.name
+            td.text-center
+              .btn-group
+                = link_to 'Ver', user, class: 'btn btn-default btn-sm'
+                = link_to 'Editar', edit_user_path(user), class: 'btn btn-default btn-sm'
+                = link_to 'Eliminar', user_path(user), method: :delete,  data: {confirm: 'Esta seguro que desea eliminar el registro?'}, class: 'btn btn-default btn-sm'

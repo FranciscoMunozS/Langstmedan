@@ -1,0 +1,11 @@
+- content_for(:page_header) do
+  |Usuarios
+.row
+  .col-md-4
+    .btn-group.btn-group-justified
+      = link_to 'Agregar usuario', new_user_path, class: 'btn btn-default'
+
+br
+.row
+  .col-md-12
+    = render 'assets/user_assets/user_table'

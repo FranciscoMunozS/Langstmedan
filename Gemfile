@@ -32,6 +32,7 @@ gem 'underscore-rails', '~> 1.8', '>= 1.8.3'
 gem 'dependent-fields-rails', '~> 0.4.2'
 gem 'carrierwave', '~> 1.2', '>= 1.2.2'
 gem 'auto_increment', '~> 1.5'
+gem 'rolify', '~> 5.2'
 
 group :development do
   gem 'capistrano', '~> 3.7', '>= 3.7.1'

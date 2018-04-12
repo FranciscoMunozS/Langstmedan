@@ -46,3 +46,13 @@ nav.navbar.navbar-default.navbar-static-top role="navigation" style=("margin-bot
           ul.nav.nav-second-level.collapse
             li
               = link_to 'Crear observación', new_observation_path()
+        li
+          a href="#"
+            i.fa.fa-users.fa-fw
+            |  Usuarios
+            span.fa.arrow
+          ul.nav.nav-second-level.collapse
+            li
+              = link_to 'Usuarios', users_path()
+            li
+              = link_to 'Agregar usuario', new_user_path()

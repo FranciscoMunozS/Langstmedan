@@ -1,0 +1,14 @@
+= simple_form_for(@user) do |f|
+  = f.error_notification
+  .panel.panel-default
+    .panel-heading
+      h2 Datos usuarios
+    .panel-body
+      .form-group
+        = f.input :email, label: 'Correo electronico'
+        = f.input :password, label: 'Contraseña'
+        = f.input :password_confirmation, label: 'Confirmar contraseña'
+
+        = f.association :roles, collection: Role.all
+
+        = f.button :submit, class: 'btn btn-primary'

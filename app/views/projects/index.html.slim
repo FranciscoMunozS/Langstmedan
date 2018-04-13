@@ -2,11 +2,28 @@
   |Proyectos
 .row
   .col-md-4
-    .btn-group.btn-group-justified
-      = link_to 'Agregar proyecto', new_project_path, class: 'btn btn-default'
-      = link_to 'Agregar observación', new_observation_path, class: 'btn btn-default'
-br
+    - if current_user.has_role? :admin
+      .btn-group.btn-group-justified
+        = link_to 'Agregar proyecto', new_project_path, class: 'btn btn-default'
+        = link_to 'Agregar observación', new_observation_path, class: 'btn btn-default'
+    - elsif current_user.has_role? :editor
+      .btn-group.btn-group-justified
+        = link_to 'Agregar proyecto', new_project_path, class: 'btn btn-default'
+        = link_to 'Agregar observación', new_observation_path, class: 'btn btn-default'
+    - else
 
-.row
-  .col-md-12
-    = render 'assets/project_assets/project_table'
+- if current_user.has_role? :admin
+  br
+  .row
+    .col-md-12
+      = render 'assets/project_assets/project_table'
+- elsif current_user.has_role? :editor
+  br
+  .row
+    .col-md-12
+      = render 'assets/project_assets/project_table'
+- else
+  br
+  .row
+    .col-md-12
+      = render 'assets/project_assets/visitor_project_table'

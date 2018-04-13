@@ -1,4 +1,7 @@
 en:
+  unauthorized:
+    manage:
+      all: "Sin acceso al recurso solicitado"
   helpers:
     submit:
       project:
@@ -10,6 +13,9 @@ en:
       meeting:
         create: "Crear reunión"
         update: "Actualizar reunión"
+      user:
+        create: "Crear usuario"
+        update: "Actualizar usuario"
 
   enumerize:
     project:

@@ -28,31 +28,65 @@ nav.navbar.navbar-default.navbar-static-top role="navigation" style=("margin-bot
           a href="/"
             i.fa.fa-dashboard.fa-fw
             |  Inicio
-        li
-          a href="#"
-            i.fa.fa-bar-chart-o.fa-fw
-            |  Proyectos
-            span.fa.arrow
-          ul.nav.nav-second-level.collapse
-            li
-              = link_to 'Proyectos', projects_path()
-            li
-              = link_to 'Crear proyecto', new_project_path()
-        li
-          a href="#"
-            i.fa.fa-tasks.fa-fw
-            |  Observaciones
-            span.fa.arrow
-          ul.nav.nav-second-level.collapse
-            li
-              = link_to 'Crear observación', new_observation_path()
-        li
-          a href="#"
-            i.fa.fa-users.fa-fw
-            |  Usuarios
-            span.fa.arrow
-          ul.nav.nav-second-level.collapse
-            li
-              = link_to 'Usuarios', users_path()
-            li
-              = link_to 'Agregar usuario', new_user_path()
+        - if current_user.has_role? :admin
+          li
+            a href="#"
+              i.fa.fa-bar-chart-o.fa-fw
+              |  Proyectos
+              span.fa.arrow
+            ul.nav.nav-second-level.collapse
+              li
+                = link_to 'Proyectos', projects_path()
+              li
+                = link_to 'Crear proyecto', new_project_path()
+        - elsif current_user.has_role? :editor
+          li
+            a href="#"
+              i.fa.fa-bar-chart-o.fa-fw
+              |  Proyectos
+              span.fa.arrow
+            ul.nav.nav-second-level.collapse
+              li
+                = link_to 'Proyectos', projects_path()
+              li
+                = link_to 'Crear proyecto', new_project_path()
+        - else
+          li
+            a href="#"
+              i.fa.fa-bar-chart-o.fa-fw
+              |  Proyectos
+              span.fa.arrow
+            ul.nav.nav-second-level.collapse
+              li
+                = link_to 'Proyectos', projects_path()
+        - if current_user.has_role? :admin
+          li
+            a href="#"
+              i.fa.fa-tasks.fa-fw
+              |  Observaciones
+              span.fa.arrow
+            ul.nav.nav-second-level.collapse
+              li
+                = link_to 'Crear observación', new_observation_path()
+        - elsif current_user.has_role? :editor
+          li
+            a href="#"
+              i.fa.fa-tasks.fa-fw
+              |  Observaciones
+              span.fa.arrow
+            ul.nav.nav-second-level.collapse
+              li
+                = link_to 'Crear observación', new_observation_path()
+        - else
+          li
+        - if current_user.has_role? :admin
+          li
+            a href="#"
+              i.fa.fa-users.fa-fw
+              |  Usuarios
+              span.fa.arrow
+            ul.nav.nav-second-level.collapse
+              li
+                = link_to 'Usuarios', users_path()
+              li
+                = link_to 'Agregar usuario', new_user_path()

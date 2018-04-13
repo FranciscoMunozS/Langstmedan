@@ -61,6 +61,7 @@ GEM
       jquery-rails
     builder (3.2.3)
     byebug (10.0.0)
+    cancancan (2.1.4)
     capistrano (3.10.1)
       airbrussh (>= 1.0.0)
       i18n
@@ -275,6 +276,7 @@ DEPENDENCIES
   bootstrap-sass (~> 3.3, >= 3.3.7)
   bootstrap_sb_admin_base_v2
   byebug
+  cancancan (~> 2.1, >= 2.1.4)
   capistrano (~> 3.7, >= 3.7.1)
   capistrano-passenger (~> 0.2.0)
   capistrano-rails (~> 1.2)

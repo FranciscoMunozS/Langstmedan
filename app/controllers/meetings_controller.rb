@@ -1,6 +1,7 @@
 class MeetingsController < ApplicationController
   before_action :find_meeting, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!
+  load_and_authorize_resource
 
   def index
     @projects = Project.all

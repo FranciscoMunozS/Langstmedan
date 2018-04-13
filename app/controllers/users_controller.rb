@@ -1,6 +1,8 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!
+  load_and_authorize_resource
+
 
   def index
     @users = User.all
@@ -20,7 +22,7 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
 
     if @user.save
-      redirect_to @user, notice: 'Usuario creado correctamente'
+      redirect_to users_url, notice: 'Usuario creado correctamente'
     else
       render :new
     end
@@ -28,7 +30,7 @@ class UsersController < ApplicationController
 
   def update
     if @user.update(user_params)
-      redirect_to @user, notice: 'Usuario actualizado correctamente'
+      redirect_to users_url, notice: 'Usuario actualizado correctamente'
     else
       render :edit
     end

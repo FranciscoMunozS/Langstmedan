@@ -1,6 +1,8 @@
 class ObservationsController < ApplicationController
   before_action :find_observation, only: [:show, :edit, :update]
   before_action :authenticate_user!
+  load_and_authorize_resource
+
 
   def new
     @observation = Observation.new

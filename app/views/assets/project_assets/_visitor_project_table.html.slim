@@ -11,14 +11,18 @@
             th.text-center Acciones
         tbody
           - @projects.each do |project|
-            tr
-              td.text-center= project.idi
-              td.text-center= project.commune.text
-              td.text-center= project.name
-              td.text-center= project.observations.count
-              td.text-center
-                .btn-group
-                  = link_to 'Ver', project, class: 'btn btn-default btn-sm'
+            - if project.status === 'draft'
+              h4 Sin proyectos listado
+              hr
+            - else
+              tr
+                td.text-center= project.idi
+                td.text-center= project.commune.text
+                td.text-center= project.name
+                td.text-center= project.observations.count
+                td.text-center
+                  .btn-group
+                    = link_to 'Ver', project, class: 'btn btn-default btn-sm'
 - else
   .panel.panel-default
     .panel-body

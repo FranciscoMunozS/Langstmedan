@@ -12,6 +12,27 @@
                 strong
                   | Detalle de observación:
               p.text-center= observation.observation_detail
+          - if observation.contralory_date
+            hr
+            .row
+              .col-md-12
+                p.text-center
+                  strong
+                    | Contraloria:
+                .row
+                  .col-md-6
+                    p.text-center
+                      strong
+                        | Fecha
+                    p.text-center= observation.contralory_date
+                  .col-md-6
+                    p.text-center
+                      strong
+                        | Informe de contraloria:
+                    - if observation.contralory_file?
+                      p.text-center= link_to 'Descargar', observation.contralory_file.url, class: 'btn btn-primary'
+                    - else
+                      p.text-center Sin respaldo adjunto
           - if observation.technical_date?
             hr
             .row

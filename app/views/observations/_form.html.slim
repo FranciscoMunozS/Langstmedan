@@ -9,9 +9,9 @@
       .row
         .col-md-12
           - if params[:action] == "edit"
-            = f.input :options, input_html: { class: 'form-control' }, collection: ['Visita terreno', 'Reunión', 'Informado por unidad técnica'], disabled: true
+            = f.input :options, input_html: { class: 'form-control' }, collection: ['Visita terreno', 'Reunión', 'Informado por unidad técnica', 'Contraloria'], disabled: true
           - else
-            = f.input :options, input_html: { class: 'form-control' }, collection: ['Visita terreno', 'Reunión', 'Informado por unidad técnica']
+            = f.input :options, input_html: { class: 'form-control' }, collection: ['Visita terreno', 'Reunión', 'Informado por unidad técnica', 'Contraloria']
 
           .js-dependent-fields[data-select-id='observation_options' data-option-value='Visita terreno']
             .panel.panel-default
@@ -88,6 +88,29 @@
                       p= link_to 'Ver', @observation.technical_file.url
                 - if @observation.technical_file?
                   = f.input :remove_technical_file, as: :boolean
+
+          .js-dependent-fields[data-select-id='observation_options' data-option-value='Contraloria']
+            .panel.panel-default
+              .panel-heading
+                h4 Contraloria
+              .panel-body
+                = f.input :contralory_date, as: :string, input_html: { class: 'datepicker' }
+                = f.input :contralory_file
+                - if @observation.contralory_file?
+                  .panel.panel-default
+                    .panel-heading
+                      p Documentos
+                    .panel-body
+                      .col
+                        p Informe:
+                        p
+                          i.fa.fa-file-pdf-o.fa-fw
+                          = @observation.contralory_file.file.filename
+                        p= link_to 'Ver', @observation.contralory_file.url
+                        - if @observation.contralory_file?
+                          p.text-danger= f.input :remove_contralory_file, label: "Quitar informe de contraloria", as: :boolean, input_html: { class: "checkbox" }
+                - else
+                  p Sin documentación adjunta
 
       .row
         .form-group.col-md-12

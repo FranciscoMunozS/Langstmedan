@@ -11,4 +11,5 @@ class Observation < ApplicationRecord
   mount_uploader :visit_booklet, FileUploader
   mount_uploader :reunion_file, FileUploader
   mount_uploader :technical_file, FileUploader
+  mount_uploader :contralory_file, FileUploader
 end

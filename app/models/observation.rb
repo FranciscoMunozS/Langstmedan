@@ -12,4 +12,10 @@ class Observation < ApplicationRecord
   mount_uploader :reunion_file, FileUploader
   mount_uploader :technical_file, FileUploader
   mount_uploader :contralory_file, FileUploader
+
+  validates_integrity_of :report_made
+  validates_integrity_of :visit_booklet
+  validates_integrity_of :reunion_file
+  validates_integrity_of :technical_file
+  validates_integrity_of :contralory_file
 end
